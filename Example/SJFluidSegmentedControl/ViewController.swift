@@ -9,7 +9,7 @@
 import UIKit
 import SJFluidSegmentedControl
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: - Outlets
     
@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         } else {
             segmentedControl.textFont = .boldSystemFont(ofSize: 16)
         }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTap(sender:)))
+        tap.delegate = self
+        view.addGestureRecognizer(tap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,6 +38,10 @@ class ViewController: UIViewController {
         
         // Uncomment the following line to set the current segment programmatically.
         // segmentedControl.currentSegment = 1
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+        segmentedControl.pulsateShadowForSegmentAtIndex(0, duration: 1.0)
     }
     
 }

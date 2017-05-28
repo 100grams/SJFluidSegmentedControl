@@ -1022,6 +1022,17 @@ public class SJFluidSegmentedControl: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+    open func pulsateShadowForSegmentAtIndex(_ index: Int, duration: TimeInterval) {
+    
+        UIView.animate(withDuration: duration, animations: { [weak self] in
+            self?.setupShadowForSegmentAtIndex(index, visible: true, animated: true)
+            self?.setupSegmentViewAtIndex(index, withSelectionPercent: 0)
+        }) { [weak self] (Bool) in
+            self?.setupShadowForSegmentAtIndex(index, visible: false, animated: true)
+            self?.setupSegmentViewAtIndex(index, withSelectionPercent: 1)
+        }
+    }
+    
     // MARK: - Segments
     
     fileprivate func changeSegmentToSegmentAtIndex(_ index: Int) {
