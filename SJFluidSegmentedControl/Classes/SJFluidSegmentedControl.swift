@@ -896,6 +896,7 @@ public class SJFluidSegmentedControl: UIView, UIGestureRecognizerDelegate {
         
     }
     
+    
     // MARK: - Gradient Setup
     
     fileprivate func setupGradientWithPercent(_ percent: CGFloat, offsetFactor factor: CGFloat) {
