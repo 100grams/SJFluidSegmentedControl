@@ -22,7 +22,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 8.2, *) {
-            segmentedControl.textFont = .systemFont(ofSize: 16, weight: UIFontWeightSemibold)
+            segmentedControl.textFont = .systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
         } else {
             segmentedControl.textFont = .boldSystemFont(ofSize: 16)
         }
@@ -40,7 +40,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         // segmentedControl.currentSegment = 1
     }
     
-    func handleTap(sender: UITapGestureRecognizer? = nil) {
+    @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
         segmentedControl.pulsateShadowForSegmentAtIndex(0, duration: 1.0)
     }
     
